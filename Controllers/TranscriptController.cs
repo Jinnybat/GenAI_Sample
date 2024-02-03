@@ -51,6 +51,7 @@ public class TranscriptController : Controller
         }
     }
     [HttpPost]
+    [NonAction]
     public async Task<JsonResult> GenerateImage([FromBody] Request request)
     {
         try
@@ -83,6 +84,7 @@ public class TranscriptController : Controller
     }
 
     [HttpPost]
+    [NonAction]
     public async Task<JsonResult> BetalgoSentiment([FromBody] Request request)
     {
         try
