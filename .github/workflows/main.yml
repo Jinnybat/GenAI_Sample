@@ -3,6 +3,8 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [ main ]
+permissions:
+  contents: write
 jobs:
   deploy-to-github-pages:
     # use ubuntu-latest image to run steps on
@@ -19,9 +21,8 @@ jobs:
     - name: Publish .NET Core Project
       run: dotnet publish GenAI_Sample.csproj -c Release -o release --nologo
       
-    - name: Commit wwwroot to GitHub Pages
-      uses: JamesIves/github-pages-deploy-action@3.7.1
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@v4
       with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BRANCH: gh-pages
-        FOLDER: release/wwwroot      
+          folder: build # The folder the action should deploy.
+
