@@ -1,0 +1,13 @@
+E:\Projects\GenAI\GenAI_Sample\bin\Debug\net7.0\publish\GenAI_Sample.exe
+E:\Projects\GenAI\GenAI_Sample\bin\Debug\net7.0\publish\appsettings.Development.json
+E:\Projects\GenAI\GenAI_Sample\bin\Debug\net7.0\publish\appsettings.json
+E:\Projects\GenAI\GenAI_Sample\bin\Debug\net7.0\publish\GenAI_Sample.dll
+E:\Projects\GenAI\GenAI_Sample\bin\Debug\net7.0\publish\GenAI_Sample.deps.json
+E:\Projects\GenAI\GenAI_Sample\bin\Debug\net7.0\publish\GenAI_Sample.runtimeconfig.json
+E:\Projects\GenAI\GenAI_Sample\bin\Debug\net7.0\publish\GenAI_Sample.pdb
+E:\Projects\GenAI\GenAI_Sample\bin\Debug\net7.0\publish\Azure.AI.OpenAI.dll
+E:\Projects\GenAI\GenAI_Sample\bin\Debug\net7.0\publish\Azure.Core.dll
+E:\Projects\GenAI\GenAI_Sample\bin\Debug\net7.0\publish\OpenAI.dll
+E:\Projects\GenAI\GenAI_Sample\bin\Debug\net7.0\publish\Microsoft.Bcl.AsyncInterfaces.dll
+E:\Projects\GenAI\GenAI_Sample\bin\Debug\net7.0\publish\System.ClientModel.dll
+E:\Projects\GenAI\GenAI_Sample\bin\Debug\net7.0\publish\System.Memory.Data.dll
