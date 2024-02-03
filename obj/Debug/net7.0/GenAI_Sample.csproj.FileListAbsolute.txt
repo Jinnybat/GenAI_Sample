@@ -31,3 +31,41 @@ c:\Users\703373184\OneDrive - Genpact\Projects\GenAI_Sample\obj\Debug\net7.0\ref
 C:\Users\703373184\OneDrive - Genpact\Projects\GenAI_Sample\bin\Debug\net7.0\OpenAI.dll
 C:\Users\703373184\OneDrive - Genpact\Projects\GenAI_Sample\obj\Debug\net7.0\GenAI_Sample.csproj.AssemblyReference.cache
 C:\Users\703373184\OneDrive - Genpact\Projects\GenAI_Sample\obj\Debug\net7.0\GenAI_Sample.csproj.CopyComplete
+E:\Projects\GenAI\GenAI_Sample\bin\Debug\net7.0\appsettings.Development.json
+E:\Projects\GenAI\GenAI_Sample\bin\Debug\net7.0\appsettings.json
+E:\Projects\GenAI\GenAI_Sample\bin\Debug\net7.0\GenAI_Sample.staticwebassets.runtime.json
+E:\Projects\GenAI\GenAI_Sample\bin\Debug\net7.0\GenAI_Sample.exe
+E:\Projects\GenAI\GenAI_Sample\bin\Debug\net7.0\GenAI_Sample.deps.json
+E:\Projects\GenAI\GenAI_Sample\bin\Debug\net7.0\GenAI_Sample.runtimeconfig.json
+E:\Projects\GenAI\GenAI_Sample\bin\Debug\net7.0\GenAI_Sample.dll
+E:\Projects\GenAI\GenAI_Sample\bin\Debug\net7.0\GenAI_Sample.pdb
+E:\Projects\GenAI\GenAI_Sample\bin\Debug\net7.0\OpenAI.dll
+E:\Projects\GenAI\GenAI_Sample\obj\Debug\net7.0\GenAI_Sample.csproj.AssemblyReference.cache
+E:\Projects\GenAI\GenAI_Sample\obj\Debug\net7.0\GenAI_Sample.GeneratedMSBuildEditorConfig.editorconfig
+E:\Projects\GenAI\GenAI_Sample\obj\Debug\net7.0\GenAI_Sample.AssemblyInfoInputs.cache
+E:\Projects\GenAI\GenAI_Sample\obj\Debug\net7.0\GenAI_Sample.AssemblyInfo.cs
+E:\Projects\GenAI\GenAI_Sample\obj\Debug\net7.0\GenAI_Sample.csproj.CoreCompileInputs.cache
+E:\Projects\GenAI\GenAI_Sample\obj\Debug\net7.0\GenAI_Sample.MvcApplicationPartsAssemblyInfo.cache
+E:\Projects\GenAI\GenAI_Sample\obj\Debug\net7.0\GenAI_Sample.RazorAssemblyInfo.cache
+E:\Projects\GenAI\GenAI_Sample\obj\Debug\net7.0\GenAI_Sample.RazorAssemblyInfo.cs
+E:\Projects\GenAI\GenAI_Sample\obj\Debug\net7.0\staticwebassets\msbuild.GenAI_Sample.Microsoft.AspNetCore.StaticWebAssets.props
+E:\Projects\GenAI\GenAI_Sample\obj\Debug\net7.0\staticwebassets\msbuild.build.GenAI_Sample.props
+E:\Projects\GenAI\GenAI_Sample\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.GenAI_Sample.props
+E:\Projects\GenAI\GenAI_Sample\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.GenAI_Sample.props
+E:\Projects\GenAI\GenAI_Sample\obj\Debug\net7.0\staticwebassets.pack.json
+E:\Projects\GenAI\GenAI_Sample\obj\Debug\net7.0\staticwebassets.build.json
+E:\Projects\GenAI\GenAI_Sample\obj\Debug\net7.0\staticwebassets.development.json
+E:\Projects\GenAI\GenAI_Sample\obj\Debug\net7.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+E:\Projects\GenAI\GenAI_Sample\obj\Debug\net7.0\scopedcss\bundle\GenAI_Sample.styles.css
+E:\Projects\GenAI\GenAI_Sample\obj\Debug\net7.0\scopedcss\projectbundle\GenAI_Sample.bundle.scp.css
+E:\Projects\GenAI\GenAI_Sample\obj\Debug\net7.0\GenAI_Sample.csproj.CopyComplete
+E:\Projects\GenAI\GenAI_Sample\obj\Debug\net7.0\GenAI_Sample.dll
+E:\Projects\GenAI\GenAI_Sample\obj\Debug\net7.0\refint\GenAI_Sample.dll
+E:\Projects\GenAI\GenAI_Sample\obj\Debug\net7.0\GenAI_Sample.pdb
+E:\Projects\GenAI\GenAI_Sample\obj\Debug\net7.0\GenAI_Sample.genruntimeconfig.cache
+E:\Projects\GenAI\GenAI_Sample\obj\Debug\net7.0\ref\GenAI_Sample.dll
+E:\Projects\GenAI\GenAI_Sample\bin\Debug\net7.0\Azure.AI.OpenAI.dll
+E:\Projects\GenAI\GenAI_Sample\bin\Debug\net7.0\Azure.Core.dll
+E:\Projects\GenAI\GenAI_Sample\bin\Debug\net7.0\Microsoft.Bcl.AsyncInterfaces.dll
+E:\Projects\GenAI\GenAI_Sample\bin\Debug\net7.0\System.ClientModel.dll
+E:\Projects\GenAI\GenAI_Sample\bin\Debug\net7.0\System.Memory.Data.dll

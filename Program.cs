@@ -1,3 +1,4 @@
+using Azure.AI.OpenAI;
 using OpenAI.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,7 +7,10 @@ var apiKey = builder.Configuration.GetSection("OpenAI:ApiKey").Value!;
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddOpenAIService(s=>s.ApiKey = apiKey);
+builder.Services.AddOpenAIService(s => s.ApiKey = apiKey);
+
+builder.Services.AddSingleton(typeof(OpenAIClient), new OpenAIClient(apiKey));
+//(new ServiceDescriptor(typeof(OpenAIClient), new OpenAIClient(apiKey)));
 
 var app = builder.Build();
 

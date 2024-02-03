@@ -1,3 +1,6 @@
+using System.Net;
+using Azure;
+using Azure.AI.OpenAI;
 using Microsoft.AspNetCore.Mvc;
 using OpenAI.Interfaces;
 using OpenAI.ObjectModels.RequestModels;
@@ -7,11 +10,15 @@ namespace GenAI_Sample.Controllers;
 
 public class TranscriptController : Controller
 {
+    private readonly IConfiguration configuration;
     private readonly IOpenAIService openAIService;
+    private readonly OpenAIClient client;
 
-    public TranscriptController(IOpenAIService openAIService)
+    public TranscriptController(IConfiguration configuration, IOpenAIService openAIService, OpenAIClient client)
     {
+        this.configuration = configuration;
         this.openAIService = openAIService;
+        this.client = client;
     }
 
     [HttpPost]
@@ -19,40 +26,101 @@ public class TranscriptController : Controller
     {
         try
         {
-            string prompt=
-            $"""
-            Create bulletpoints with heading 'Major Points' from this '{request.Message}'
-            include place, time or any specific thing discussed in the message
-            and overall sentiment of the text is Positive or Negative with heading 'Overall Sentiment'
-            """;
+            // var client = new OpenAIClient(configuration.GetSection("OpenAI:ApiKey").Value!);
 
-            var result = await openAIService.ChatCompletion.CreateCompletion(new ChatCompletionCreateRequest
+            var chatCompletion = new ChatCompletionsOptions()
             {
-                Model = OpenAI.ObjectModels.Models.Gpt_3_5_Turbo,
-                Temperature = 02f,
-                Messages = new List<ChatMessage>
+                Temperature = 0.2f,
+                DeploymentName = "gpt-3.5-turbo-16k",
+                Messages =
                 {
-                    ChatMessage.FromUser(prompt)
+                    // new ChatRequestSystemMessage("You are a beautiful assitant. You will talk like a data analyst"),
+                    new ChatRequestUserMessage("You are a data analyst and you will translate user message in english if is not and then generate two headings, first one is 'Major Points' which have summary with at minimum five and maximum ten bullet points  and second heading 'Overall Sentiments' have only one word 'Positve Or Negative'"),
+                    new ChatRequestUserMessage(request.Message),
                 }
-            });
+            };
+            Response<ChatCompletions> response = await client.GetChatCompletionsAsync(chatCompletion);
+            ChatResponseMessage? responseMessage = response.Value.Choices.FirstOrDefault()?.Message;
+            var msg = responseMessage?.Content.ToString();
 
-            if(!result.Successful)
-            {
-                return Json("Error in communicating with OpenAI api");
-            }
-            return Json(result.Choices.FirstOrDefault()?.Message.Content??"");
+            return Json(msg);
         }
-        catch (System.Exception)
+        catch (Exception ex)
         {
             return Json("Error in constructing OpenAI request");
         }
+    }
+    [HttpPost]
+    public async Task<JsonResult> GenerateImage([FromBody] Request request)
+    {
+        try
+        {
+            var client = new OpenAIClient(configuration.GetSection("OpenAI:ApiKey").Value!);
 
-        // await Task.CompletedTask;
-        // return Json($"This is a sample output ! your message was {request.Message}");
+            Response<ImageGenerations> response = await client.GetImageGenerationsAsync(
+                new ImageGenerationOptions()
+                {
+                    // DeploymentName = request.Message,
+                    DeploymentName = "dall-e-3",
+                    Prompt = "a happy monkey eating a banana, in watercolor",
+                    Size = ImageSize.Size1024x1024,
+                    Quality = ImageGenerationQuality.Standard
+                });
+
+            ImageGenerationData generatedImage = response.Value.Data[0];
+            // if (!string.IsNullOrEmpty(generatedImage.RevisedPrompt))
+            // {
+            //     Console.WriteLine($"Input prompt automatically revised to: {generatedImage.RevisedPrompt}");
+            // }
+            // Console.WriteLine($"Generated image available at: {generatedImage.Url.AbsoluteUri}");
+
+            return Json($"Generated image available at: {generatedImage.Url.AbsoluteUri}");
+        }
+        catch (Exception ex)
+        {
+            return Json("Error in constructing OpenAI request");
+        }
+    }
+
+    [HttpPost]
+    public async Task<JsonResult> BetalgoSentiment([FromBody] Request request)
+    {
+        try
+        {
+            string prompt =
+            $"""
+                    Translate in english if not and then generate two headings, first one is 'Major Points' which have summary in bullet points and second one is 'Overall Sentiments' Positive or Negative only
+                """;
+
+            var result = await openAIService.ChatCompletion.CreateCompletion(
+                new ChatCompletionCreateRequest
+                {
+                    Model = OpenAI.ObjectModels.Models.Gpt_3_5_Turbo_16k,
+                    Temperature = 02f,
+                    Messages = new List<ChatMessage>
+                    {
+                            ChatMessage.FromSystem(prompt),
+                            ChatMessage.FromUser(request.Message)
+                    }
+                });
+
+            if (!result.Successful)
+            {
+                if (result.HttpStatusCode == HttpStatusCode.Unauthorized)
+                {
+                    return Json("Request is unauthorized");
+                }
+                return Json("Error in communicating with OpenAI api");
+            }
+            return Json(result.Choices.FirstOrDefault()?.Message.Content ?? "");
+        }
+        catch (Exception ex)
+        {
+            return Json("Error in constructing OpenAI request");
+        }
     }
 }
-
 public class Request
 {
-    public string? Message{get;set;}
+    public string? Message { get; set; }
 }
